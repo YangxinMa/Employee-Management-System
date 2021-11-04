@@ -20,11 +20,11 @@ public class EmpolyeeDao {
     static  {
         employees = new HashMap<Integer, Employee>();
 
-        employees.put(1001, new Employee(1001, "AA", "Asadas@qq.com", 0, new Department(101,"Math")));
-        employees.put(1002, new Employee(1002, "BB", "Bsadas@qq.com", 1, new Department(102,"CMPT")));
-        employees.put(1003, new Employee(1003, "CC", "Csadas@qq.com", 0, new Department(103,"Physics")));
-        employees.put(1004, new Employee(1004, "DD", "Dsadas@qq.com", 1, new Department(104,"Eco")));
-        employees.put(1005, new Employee(1005, "EE", "Esadas@qq.com", 0, new Department(105,"Statistic")));
+        employees.put(1001, new Employee(1001, "Mark", "Asadas@gmail.com", 0, new Department(101,"Math")));
+        employees.put(1002, new Employee(1002, "Edward", "Bsadas@gmail.com", 1, new Department(102,"CMPT")));
+        employees.put(1003, new Employee(1003, "Miko", "Csadas@gmail.com", 0, new Department(103,"Physics")));
+        employees.put(1004, new Employee(1004, "Neil", "Dsadas@gmail.com", 1, new Department(104,"Eco")));
+        employees.put(1005, new Employee(1005, "Jack", "Esadas@gmail.com", 0, new Department(105,"Statistic")));
     }
 
 

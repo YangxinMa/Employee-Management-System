@@ -130,41 +130,37 @@
 
             <!--            <canvas class="my-4" id="myChart" width="900" height="380"></canvas>-->
 
-            <h2>Employees Information</h2>
+            <form th:action="@{/emp}" method="post" >
+                <div class="form-group" ><label>LastName</label>
+                    <input class="form-control" placeholder="Ma" type="text" name="lastName">
+                </div>
+                <div class="form-group" ><label>Email</label>
+                    <input class="form-control" placeholder="xxxx@gmail.com.xxx" type="email" name="email">
+                </div>
+                <div class="form-group"><label>Gender</label><br/>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" name="gender" type="radio" value="1">
+                        <label class="form-check-label">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" name="gender" type="radio" value="0">
+                        <label class="form-check-label">Female</label>
+                    </div>
+                </div>
+                <div class="form-group" >
+                    <label>department</label>
+                    <select class="form-control" name="department.id">
+                        <option th:each="dept:${departments}" th:text="${dept.getDepartment()}" th:value="${dept.getId()}"></option>
+                    </select>
+                </div>
+                <div class="form-group" >
+                    <label >Birth</label>
+                    <input class="form-control" placeholder="yyyy/MM/dd" type="text" name="birth">
+                </div>
+                <button class="btn btn-primary" type="submit">Import</button>
+            </form>
 
 
-            <h3><a class="btn btn-sm btn-success" th:href="@{/emp}">Import</a></h3>
-
-
-            <div class="table-responsive">
-                <table class="table table-striped table-sm">
-                    <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>lastName</th>
-                        <th>email</th>
-                        <th>gender</th>
-                        <th>department</th>
-                        <th>birth</th>
-                        <th>Operation</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        <tr th:each="emp:${emps}">
-                            <td th:text="${emp.getId()}"></td>
-                            <td>[[${emp.getLastName()}]]</td>
-                            <td th:text="${emp.getEmail()}"></td>
-                            <td th:text="${emp.getGender()==0?'Female':'Male'}"></td>
-                            <td th:text="${emp.department.getDepartment()}"></td>
-                            <td th:text="${#dates.format(emp.getBirth(), 'yyyy-MM-dd HH:mm:ss')}"></td>
-                            <td>
-                                <button class="btn byn-sm btn-primary">Edit</button>
-                                <button class="btn byn-sm btn-danger">Delete</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
         </main>
     </div>
 </div>
