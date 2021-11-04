@@ -27,32 +27,33 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 
-            <form th:action="@{/emp}" method="post" >
+            <form th:action="@{/updateEmp}" method="post" >
+                <input type="hidden" name="id" th:value="${emp.getId()}">
                 <div class="form-group" ><label>LastName</label>
-                    <input class="form-control" placeholder="Ma" type="text" name="lastName">
+                    <input th:value="${emp.getLastName()}" class="form-control" placeholder="Ma" type="text" name="lastName">
                 </div>
                 <div class="form-group" ><label>Email</label>
-                    <input class="form-control" placeholder="xxxx@gmail.com.xxx" type="email" name="email">
+                    <input th:value="${emp.getEmail()}" class="form-control" placeholder="xxxx@gmail.com.xxx" type="email" name="email">
                 </div>
                 <div class="form-group"><label>Gender</label><br/>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" name="gender" type="radio" value="1">
+                        <input th:checked="${emp.getGender()==1}" class="form-check-input" name="gender" type="radio" value="1">
                         <label class="form-check-label">Male</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" name="gender" type="radio" value="0">
+                        <input th:checked="${emp.getGender()==0}" class="form-check-input" name="gender" type="radio" value="0">
                         <label class="form-check-label">Female</label>
                     </div>
                 </div>
                 <div class="form-group" >
                     <label>department</label>
                     <select class="form-control" name="department.id">
-                        <option th:each="dept:${departments}" th:text="${dept.getDepartment()}" th:value="${dept.getId()}"></option>
+                        <option th:selected="${dept.getId()==emp.getDepartment().getId()}" th:each="dept:${departments}" th:text="${dept.getDepartment()}" th:value="${dept.getId()}"></option>
                     </select>
                 </div>
                 <div class="form-group" >
                     <label >Birth</label>
-                    <input class="form-control" placeholder="yyyy/MM/dd" type="text" name="birth">
+                    <input th:value="${#dates.format(emp.getBirth(),'yyyy/MM/dd HH:mm:ss')}" class="form-control" placeholder="yyyy/MM/dd" type="text" name="birth">
                 </div>
                 <button class="btn btn-primary" type="submit">Import</button>
             </form>

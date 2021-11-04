@@ -1,7 +1,6 @@
 package com.mark.config;
 
 import org.springframework.web.servlet.HandlerInterceptor;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,7 +10,6 @@ public class LoginHandlerIntercepter implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
         //should have user's session after login successfully
-
         Object loginUser =  request.getSession().getAttribute("loginUser");
         if (loginUser == null){
             request.setAttribute("msg", "Permission deny, please login first");
