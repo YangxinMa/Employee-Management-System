@@ -7,8 +7,9 @@ Topic: Employees management system
 You can add/delete/edit/view employees' information.
 
 Announcements:
-1. The password is 123456
-2. Please follow the format required when you do the input operation.
+1. The username can be any email, like abc@gmail.com
+2. The password is 123456
+3. Please follow the format required when you do the input operation.
 
 Reference:
 Bootstrap: https://getbootstrap.com/docs/4.0/examples/
